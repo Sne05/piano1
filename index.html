@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Piano</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+        }
+
+        .piano-container {
+            width: 500px;
+            padding: 30px;
+            background: #222;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .piano-header {
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .piano-header h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .piano-header p {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .piano {
+            display: flex;
+            position: relative;
+            height: 180px;
+            background: #111;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .white-key {
+            flex: 1;
+            height: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 0 0 5px 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 12px;
+            color: #555;
+            font-size: 11px;
+            transition: 0.1s;
+        }
+
+        .white-key:hover {
+            background: #e6e6e6;
+        }
+
+        .black-key {
+            position: absolute;
+            top: 5px;
+            width: 8%;
+            height: 105px;
+            background: linear-gradient(to bottom, #444, #000);
+            border-radius: 0 0 5px 5px;
+            z-index: 2;
+            cursor: pointer;
+            box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+        }
+
+        .black-key:hover {
+            background: #555;
+        }
+
+        /* Black key positions */
+
+        .b1 { left: 11.5%; }
+        .b2 { left: 23.5%; }
+        .b3 { left: 47.5%; }
+        .b4 { left: 59.5%; }
+        .b5 { left: 71.5%; }
+
+        .piano-footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 22px;
+        }
+
+        .brand {
+            color: #a78bfa;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="piano-container">
+
+        <div class="piano-header">
+            <h1>🎹 Mini Piano</h1>
+            <p>Explore the beautiful world of music</p>
+        </div>
+        <div class="piano">
+
+            <!-- White Keys -->
+            <audio src="p.wav" controls style="position:absolute;top:-400px;" id="C"></audio>
+            <div class="white-key" onclick="playsound(1)">C</div>
+            <audio src="d.wav" controls style="position:absolute;top:-400px;" id="D"></audio>
+            <div class="white-key" onclick="playsound(2)">D</div>
+            <audio src="e.wav" controls style="position:absolute;top:-400px;" id="E"></audio>
+            <div class="white-key" onclick="playsound(3)">E</div>
+            <audio src="f.wav" controls style="position:absolute;top:-400px;" id="F"></audio>
+            <div class="white-key" onclick="playsound(4)">F</div>
+            <audio src="g.wav" controls style="position:absolute;top:-400px;" id="G"></audio>
+            <div class="white-key" onclick="playsound(5)">G</div>
+            <audio src="a.wav" controls style="position:absolute;top:-400px;" id="A"></audio>
+            <div class="white-key" onclick="playsound(6)">A</div>
+            <audio src="b.wav" controls style="position:absolute;top:-400px;" id="B"></audio>
+            <div class="white-key" onclick="playsound(7)">B</div>
+            <audio src="l.wav" controls style="position:absolute;top:-400px;" id="C1"></audio>
+            <div class="white-key" onclick="playsound(8)">C</div>
+
+            <!-- Black Keys -->
+
+            <div class="black-key b1"></div>
+            <div class="black-key b2"></div>
+            <div class="black-key b3"></div>
+            <div class="black-key b4"></div>
+            <div class="black-key b5"></div>
+
+        </div>
+    </div>
+<script>
+
+    function playsound(num){
+        if(num==1){
+          document.getElementById("C").src = "p.wav";
+          document.getElementById("C").play();  
+        }
+        if(num==2){
+           document.getElementById("D").src ="d.wav";
+           document.getElementById("D").play();
+        }
+        if(num==3){
+            document.getElementById("E").src="e.wav";
+            document.getElementById("E").play();
+        }
+          if(num==4){
+            document.getElementById("F").src="f.wav";
+            document.getElementById("F").play();
+        }
+          if(num==5){
+            document.getElementById("G").src="g.wav";
+            document.getElementById("G").play();
+        }
+          if(num==6){
+            document.getElementById("A").src="a.wav";
+            document.getElementById("A").play();
+        }
+          if(num==7){
+            document.getElementById("B").src="k.wav";
+            document.getElementById("B").play();
+        }
+          if(num==8){
+            document.getElementById("C1").src="l.wav";
+            document.getElementById("C1").play();
+        }
+    }
+</script>
+</body>
+</html>
